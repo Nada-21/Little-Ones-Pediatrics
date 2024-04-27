@@ -16,25 +16,25 @@ function registerUser(req, res) {
     } = req.body;
   
     // Check if SSN or Username already exist
-    const checkDuplicateQuery = `SELECT * FROM registration WHERE Username = ? OR Password = ?`;
-    connection.query(checkDuplicateQuery, [Username, Password], (checkDuplicateErr, duplicateResult) => {
+    const checkDuplicateQuery = `SELECT * FROM registration WHERE Username = ? OR SSN = ?`;
+    connection.query(checkDuplicateQuery, [Username, SSN], (checkDuplicateErr, duplicateResult) => {
       if (checkDuplicateErr) {
         console.error("Error checking for existing SSN and Username:", checkDuplicateErr);
-        res.status(500).json({ error: "Internal Server Error, Check if password and Username exist in registration table" });
+        res.status(500).json({ error: "Internal Server Error, Check if SSN and Username exist in registration table" });
         return;
       }
   
       if (duplicateResult.length > 0) {
         // If SSN or Username already exists, handle the error
-        const existingPassword = duplicateResult.find(user => user.Password === Password);
+        const existingSSN = duplicateResult.find(user => user.SSN === SSN);
         const existingUsername = duplicateResult.find(user => user.Username === Username);
   
-        if (existingPassword) {
-          console.log("Password already exists");
-          res.status(400).json({ error: "Password already exists" });
+        if (existingSSN) {
+          console.log("SSN already exists");
+          res.status(400).json({ error: "SSN already exists" });
           return;
         }
-  
+
         if (existingUsername) {
           console.log("Username already exists");
           res.status(400).json({ error: "Username already exists" });
@@ -53,7 +53,7 @@ function registerUser(req, res) {
         }
   
         console.log("New user registered with UserID:", insertResult.insertId);
-        res.status(201).json({ message: "User registered successfully" });
+        res.status(200).json({ message: "User registered successfully" });
       });
     });
   }
