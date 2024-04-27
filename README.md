@@ -47,9 +47,9 @@
         </td>
         <td align="center" valign="top" width="20%">
             <a href="https://github.com/Yaso01n">
-                <img alt="Yassmin Yasser" src="https://avatars.githubusercontent.com/Yaso01n" width="100px;">
+                <img alt="Yasmin Yasser" src="https://avatars.githubusercontent.com/Yaso01n" width="100px;">
                 <br/>
-                <sub><b>Yassmin Yasser</b></sub>
+                <sub><b>Yasmin Yasser</b></sub>
             </a>
             <br/>
             <span>Backend</span>
