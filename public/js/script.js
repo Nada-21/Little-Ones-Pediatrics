@@ -102,11 +102,6 @@ function submitAppointment() {
     submitAppointment2(); // Invoke the async function
 }
 
-
-  
-  
-  
-
 // Function to delete an event by ID
 function deleteEvent(eventId) {
 	// Find the index of the event with the given ID
