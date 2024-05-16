@@ -2,6 +2,12 @@
 
 ## This project is a system designed for a pediatric clinic. It includes a patient portal where users can view their electronic health records (EHR), update their basic information, and book new appointments. It also features a doctor portal that allows doctors to view patient electronic medical records (EMR), create new EMRs, and view their scheduled appointments.
 
+### Patient Portal 
+![Patient Portal](https://github.com/Nada-21/Little-Ones-Pediatrics/assets/83358118/b7563edd-9dd3-48f7-ba88-fd86b4a8bc0d)
+
+### Doctor Portal
+![Doctor Portal](https://github.com/Nada-21/Little-Ones-Pediatrics/assets/83358118/c315eb05-789c-4d2f-8715-771b74be4306)
+
 
 <table>
     <tbody>
