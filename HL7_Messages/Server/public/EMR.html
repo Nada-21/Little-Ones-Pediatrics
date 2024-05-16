@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Site Metas -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>EMR | Little Ones Pediatrics</title>
+    <link rel="shortcut icon" type="image/png" href="images/newborn.jpg">
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- nice select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+          integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous"/>
+
+    <!-- datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet"/>
+
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet"/>
+
+    <title>EMR</title>
+    <link rel="stylesheet" href="css/style-EMR.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    
+    
+</head>
+<body>
+<h1>Little Ones Pediatrics</h1>
+<div class="container">
+    <div class="weather-input">
+        <h3>Enter a PatientID</h3>
+        <input class="city-input" type="text" placeholder="">
+        <!-- Add an event listener to the Search button -->
+        <button class="search-btn" onclick="searchPatient()">Search</button>
+        <button class="search-btn " style=  "margin-top: 10px;"onclick="createNewEMR()">Create New EMR</button>
+        <button class="search-btn " style=  "margin-top: 10px; "onclick="redirectToSchedule()" >View Today's schedual</button>
+
+    </div>
+
+
+    <div class="weather-data" style="display: none;"> <!-- Initially hidden -->
+        <div class="current-weather" style="background:#2d2f30;">
+            <div class="days-forecast">
+                <ul class="weather-cards">
+                    <li class="card">
+                        <h6 style="color: #00c6a9;">Personal Data</h6>
+                        <h6>Name: <span id="patientName"></span></h6>
+                        <h6>Weight: <span id="patientWeight"></span></h6>
+                        <h6>Height: <span id="patientHeight"></span></h6>
+                        <h6>Age: <span id="patientAge"></span></h6>
+                    </li>
+                    <li class="card">
+                        <h6 style="color: #00c6a9;">Drugs</h6>
+                        <h6 id="patientDrugs"></h6>
+                    </li>
+                    <li class="card">
+                        <h6 style="color: #00c6a9;">Illnesses</h6>
+                        <h6 id="patientIllnesses"></h6>
+                    </li>
+                    <li class="card">
+                        <h6 style="color: #00c6a9;">Medical Tests</h6>
+                        <h6 id="patientMedicalTests"></h6>
+                    </li>
+                    <li class="card">
+                        <h6 style="color: #00c6a9;">Operations</h6>
+                        <h6 id="patientOperations"></h6>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="current-weather" style="margin: 8px; background:#fff; border: 1px solid #00c6a9">
+            <form>
+                <div class="form-row ">
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputDiagnosis" placeholder="Diagnosis">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputExtraNotes" placeholder="ExtraNotes">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputHeight" placeholder="Height">
+                    </div>
+                    <!-- Add other input fields here -->
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputHeartRate" placeholder="Heart Rate">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputRecommendedAction" placeholder="Recommended Action">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputBloodPressure" placeholder="Blood Pressure">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputDiabeticTest" placeholder="Diabetic Test">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputWeight" placeholder="Weight">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputRespirationRate" placeholder="Respiration Rate">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputSPO2" placeholder="SPO2">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="button-container" style="display: none;"> <!-- Initially hidden -->
+      <div class="button-row">
+        <button onclick="openForm3()" class="button1">Prescription</button>
+        <button onclick="openFormtest()" class="button1">Test</button>
+        <button onclick="openForm()" class="button1">Services</button>
+        <button class="button1" style="width: 100px; " onclick="enableEdit">Edit</button>
+        <button class="button1" style="width: 100px; " disabled onclick="Edit()"> Done</button>
+    </div>
+
+    </div>
+
+</div>
+
+<div class="form1" id="myForm" style="display: none;">
+    <!-- Form for Services -->
+    <form>
+        <h1 style="color: #00c6a9; background-color: #fff;">Services</h1>
+        <select name="" type="text" id="serviceSelect" placeholder="Services" class="form-control wide">
+            <option value="Vaccine">Vaccine</option>
+            <option value="Nebulizer">Nebulizer</option>
+            <option value="Iv adminis">Iv adminis</option>
+        </select>
+        <button type="button" style="color: #00c6a9; background-color: #fff; border:#fff;" onclick="createService()">Save</button>
+        <button type="button" style="background-color: #fff; border:#fff;" onclick="closeForm()">Close</button>
+    </form>
+</div>
+
+<div class="form1" id="test" style="display: none;">
+    <!-- Form for Tests -->
+    <form>
+        <h1 style="color: #00c6a9; background-color: #fff;">Tests</h1>
+        <select name="" type="text" id="testSelect" placeholder="Tests" class="form-control wide">
+            <option value="ASOT">ASOT</option>
+            <option value="VitaminD">VitaminD</option>
+            <option value="CBC">CBC</option>
+        </select>
+        <button type="button" style="color: #00c6a9; background-color: #fff; border:#fff;" onclick="createTest()">Save</button>
+        <button type="button" style="background-color: #fff; border:#fff;" onclick="closeForm2()">Close</button>
+    </form>
+</div>
+
+<div class="form1" id="myForm3" style="display: none;">
+    <!-- Form for Prescription -->
+    <form >
+        <h1 style="color: #00c6a9; background-color: #fff;">Add Prescription</h1>
+
+        <input type="text" class="form-control" id="inputDrug" style="margin: 6px;" placeholder="Drug">
+        <input type="text" class="form-control" id="inputDose" style="margin: 6px;" placeholder="Dose">
+        <input type="text" class="form-control" id="inputTime" style="margin: 6px;" placeholder="Time">
+        <input type="text" class="form-control" id="inputNote" style="margin: 6px;" placeholder="Note">
+
+
+        <button type="button" style="color: #00c6a9; background-color: #fff; border:#fff;" onclick="createDrug()">Save</button>
+        <button type="button" style="background-color: #fff; border:#fff;" onclick="closeForm3()">Close</button>
+    </form>
+    <!-- Form content -->
+</div>
+<div class="patient-details-form" style="display: none;">
+  <h3>Enter Patient Details</h3>
+  <form>
+      <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="inputPatientName">Name</label>
+              <input type="text" class="form-control" id="inputPatientName" placeholder="Name" >
+          </div>
+          <div class="form-group col-md-6">
+              <label for="inputPatientWeight">Weight</label>
+              <input type="text" class="form-control" id="inputPatientWeight" placeholder="Weight" >
+          </div>
+          <div class="form-group col-md-6">
+              <label for="inputPatientHeight">Height</label>
+              <input type="text" class="form-control" id="inputPatientHeight" placeholder="Height" >
+          </div>
+          <div class="form-group col-md-6">
+              <label for="inputPatientID">ID</label>
+              <input type="text" class="form-control" id="inputPatientID" placeholder="ID" >
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPatientDrugs">Drugs</label>
+            <input type="text" class="form-control" id="inputPatientDrugs" placeholder="Drugs">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPatientIllnesses">Illnesses</label>
+          <input type="text" class="form-control" id="inputPatientIllnesses" placeholder="Illnesses">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="inputPatientMedicalTests">Medical Tests</label>
+        <input type="text" class="form-control" id="inputPatientMedicalTests" placeholder="Medical Tests">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPatientOperations">Operations</label>
+      <input type="text" class="form-control" id="inputPatientOperations" placeholder="Operations">
+  </div>
+        
+      </div>
+      <button type="button" class="btn btn-primary" onclick="savePatientDetails()">Save</button>
+  </form>
+</div>
+
+<script>
+    let PatientID ;
+//===================================================================================================================
+function searchPatient() {
+    patientID = parseInt(document.querySelector('.city-input').value);
+
+    // Make a GET request to fetch patient data based on ID
+    fetch(`/getPatientAndEMR/${patientID}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        localStorage.setItem("patientID", patientID);    // store patientID in storage
+
+        if (data.registration.length > 0 ) {
+            // Update patient data fields with fetched values
+            const patient = data.registration[0]; 
+            const emrdata = data.emr[0];
+            const drugsdata = data.drugs;
+            const illnessdata = data.illness;
+            const testsdata = data.tests;
+            const operationsdata = data.operation;
+
+            document.getElementById('patientName').innerText = patient.FirstName + ' ' + patient.LastName;
+            document.getElementById('patientWeight').innerText = emrdata.Weight || 'N/A';
+            document.getElementById('patientHeight').innerText = emrdata.Height || 'N/A';
+            document.getElementById('patientAge').innerText = patient.Age || 'N/A';
+            document.getElementById('patientDrugs').innerText = drugsdata.map(drug => drug.DName).join(', ') || 'N/A';
+            document.getElementById('patientIllnesses').innerText = illnessdata.map(illness => illness.IllnessDescription).join(', ') || 'N/A';
+            document.getElementById('patientMedicalTests').innerText = testsdata.map(test => test.TestDescription).join(', ') || 'N/A';
+            document.getElementById('patientOperations').innerText = operationsdata.map(operation => operation.OperationName).join(', ') || 'N/A';
+
+            document.querySelector('.weather-data').style.display = 'block';
+            document.querySelector('.button-container').style.display = 'block';
+        } else {
+            alert('Patient data not found. Please create a new EMR.');
+        }
+    })
+    .catch(error => {
+    console.error('Error fetching patient data:', error);
+    alert('An error occurred while fetching patient data. Please try again.');
+});
+}
+
+
+//===================================================================================================================
+function redirectToSchedule() {
+    // Perform any necessary actions here
+    window.location.href = "DoctorSchedule.html";
+}
+
+//===================================================================================================================
+function getCurrentPatientID() {
+    patientID =  localStorage.getItem("patientID")  //restore patientid from storage
+    return patientID;
+}
+//====================================================================================================================
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+}
+
+function openFormtest() {
+    document.getElementById("test").style.display = "block";
+}
+
+function openForm3() {
+    document.getElementById("myForm3").style.display = "block";
+}
+
+function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+}
+
+function closeForm2() {
+    document.getElementById("test").style.display = "none";
+}
+
+function closeForm3() {
+    document.getElementById("myForm3").style.display = "none";
+}
+
+function disableEdit() {
+    // Disable inputs in the current-weather class
+    document.querySelectorAll('.current-weather input').forEach(function (input) {
+        input.setAttribute('disabled', true);
+    });
+    // Enable the Edit button
+    document.querySelector('.button-row button:nth-child(4)').disabled = false;
+    // Disable the Done button
+    document.querySelector('.button-row button:nth-child(5)').disabled = true;
+}
+
+// Function to enable editing of fields
+function enableEdit() {
+    // Enable inputs in the current-weather class
+    document.querySelectorAll('.current-weather input').forEach(function (input) {
+        input.removeAttribute('disabled');
+    });
+    // Disable the Edit button
+    document.querySelector('.button-row button:nth-child(4)').disabled = true;
+    // Enable the Done button
+    document.querySelector('.button-row button:nth-child(5)').disabled = false;
+}
+
+// Call the disableEdit function to block the fields initially
+disableEdit();
+//======================================================================================================================
+
+    // Call the enableEdit function when Edit button is clicked
+    document.querySelector('.button-row button:nth-child(4)').addEventListener('click', enableEdit);
+
+    // Call the disableEdit function when Done button is clicked
+    document.querySelector('.button-row button:nth-child(5)').addEventListener('click', disableEdit);
+    function createNewEMR() {
+        // Display weather data
+        // document.querySelector('.weather-data').style.display = 'block';
+        // Empty button container
+        document.querySelector('.patient-details-form').style.display = 'block';
+        // document.querySelector('.button-container').style.display = 'block';
+    }
+
+    //===================================================================================================================
+    async function savePatientDetails() {
+    // Get patient details from the form
+    var patientName = document.getElementById('inputPatientName').value;
+    var patientWeight = document.getElementById('inputPatientWeight').value;
+    var patientHeight = document.getElementById('inputPatientHeight').value;
+    var patientID = document.getElementById('inputPatientID').value;
+    var patientDrugs = document.getElementById('inputPatientDrugs').value;
+    var patientIllnesses = document.getElementById('inputPatientIllnesses').value;
+    var patientMedicalTests = document.getElementById('inputPatientMedicalTests').value;
+    var patientOperations = document.getElementById('inputPatientOperations').value;
+
+    // Create an object with patient details
+    const formData = {
+        FirstName: patientName,
+        PatientID: patientID,
+        Weight: patientWeight,
+        Height: patientHeight,
+        Drugs: patientDrugs,
+        Illnesses: patientIllnesses,
+        MedicalTests: patientMedicalTests,
+        Operations: patientOperations
+    };
+
+    try {
+        const response = await fetch("/EMR", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+        if (response.ok) {
+            alert(`New EMR is created for patient with ID ${PatientID}.`); // Show success message
+        } else {
+            const result = await response.json();
+            alert(result.error); // Show error message
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+    }
+}
+//===========================================================================================================
+async function createDrug(){
+    var patientID = getCurrentPatientID();
+    var DName = document.getElementById('inputDrug').value;
+    var DDose = document.getElementById('inputDose').value;
+    var DDuration = document.getElementById('inputTime').value;
+    var Notes = document.getElementById('inputNote').value;
+
+    const formData = {
+        PatientID: patientID,
+        DName: DName,
+        DDose: DDose,
+        DDuration: DDuration,
+        Notes: Notes
+    };
+
+    try {
+        const response = await fetch("/drug", {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+    const result = await response.json();
+        
+        if (response.ok) {
+            alert("New Drug is Added"); // Show success message
+        } else {
+            alert(result.error); // Show error message
+        }
+        } catch (error) {
+        console.error("Error:", error);
+        alert("Please try again.");
+        }
+
+}
+//=====================================================================================
+async function createTest() {
+    var patientID = getCurrentPatientID();
+    var test = document.getElementById('testSelect').value; // Retrieve value from test select
+
+    const formData = {
+        PatientID: patientID,
+        TestDescription: test,
+    };
+
+    // Send test details to the backend
+    try {
+        const response = await fetch("/test", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("New test is added: " + test); // Show success message
+        } else {
+            alert(result.error); // Show error message
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Please try again.");
+    }
+    }
+//=========================================================================================
+async function createService() {
+    var patientID = getCurrentPatientID();
+    var ServicesDescription = document.getElementById("serviceSelect").value;
+
+    const formData = {
+        PatientID: patientID,
+        ServicesDescription: ServicesDescription,
+    };
+
+    // Send Service details to the backend
+    try {
+        const response = await fetch("/service", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+        const result = await response.json();
+
+        if (response.ok) {
+            alert("New service is added: " + ServicesDescription); // Show success message
+        } else {
+            alert(result.error); // Show error message
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Please try again.");
+    }
+}
+
+//==========================================================================================
+async function Edit() {
+    var patientID = getCurrentPatientID();
+    var Diagnosis = document.getElementById('inputDiagnosis').value;
+    var ExtraNotes = document.getElementById('inputExtraNotes').value;
+    var Height = document.getElementById('inputHeight').value;
+    var HeartRate = document.getElementById('inputHeartRate').value;
+    var RecommendedAction = document.getElementById('inputRecommendedAction').value;
+    var BloodPressure = document.getElementById('inputBloodPressure').value;
+    var DiabeticTest = document.getElementById('inputDiabeticTest').value;
+    var Weight = document.getElementById('inputWeight').value;
+    var RespirationRate = document.getElementById('inputRespirationRate').value;
+    var SPO2 = document.getElementById('inputSPO2').value;
+
+    const formData = {
+        PatientID: patientID,
+        Diagnosis: Diagnosis,
+        ExtraNotes: ExtraNotes,
+        Height: Height,
+        HeartRate: HeartRate,
+        RecommendedAction: RecommendedAction,
+        BloodPressure: BloodPressure,
+        DiabeticTest: DiabeticTest,
+        Weight: Weight,
+        RespirationRate: RespirationRate,
+        SPO2: SPO2
+    };
+    try {
+        const response = await fetch("/edit", {
+            method: "PUT", // Change method to PUT
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+        if (response.ok) {
+            alert("Success Editing"); // Show success message
+        } else {
+            const result = await response.json();
+            alert(result.error); // Show error message
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred. Please try again.");
+    }
+}
+</script>
+</body>
+</html>
