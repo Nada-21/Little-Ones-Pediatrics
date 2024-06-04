@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab - youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Registration | Little Ones Pediatrics  </title>
+    <link rel="shortcut icon" type="image/png" href="static/assets/images/newborn.jpg">
+    <link rel="stylesheet" href="static/assets/css/style-register.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form id="registrationForm" >
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">First Name</span>
+            <input type="text" id="FirstName" name="FirstName" placeholder="Enter your first name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Last Name</span>
+            <input type="text" id="LastName" name="LastName" placeholder="Enter your last name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="text" id="Age" name="Age" placeholder="Enter your age" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parent Name</span>
+            <input type="text" id="ParentName" name="ParentName" placeholder="Enter your parent name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parent Number</span>
+            <input type="text" id="ParentNumber" name="ParentNumber" placeholder="Enter your parent number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Ssn</span>
+            <input type="text" id="SSN" name="SSN" placeholder="Enter your SSN" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" id="Username" name="Username" placeholder="Enter your username" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Parent Email</span>
+            <input type="text" id="ParentEmail" name="ParentEmail" placeholder="Enter your parent email" required>
+          </div>
+          
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="Password" name="Password" placeholder="Enter your password" required>
+          </div>
+          
+        </div>
+        <div class="gender-details">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="male">
+              <input type="radio" id="male" name="Gender" value="male">
+              <span class="gender">Male</span>
+            </label>
+            <label for="female">
+              <input type="radio" id="female" name="Gender" value="female">
+              <span class="gender">Female</span>
+            </label>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent the form from submitting normally
+      const form = event.target;
+      const formData = new FormData(form);
+  
+      fetch(form.action, {
+        method: form.method,
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message === "User registered successfully") {
+          alert("User registered successfully");
+          window.location.href = "http://127.0.0.1:5000/patientlogin"; // Redirect to login page
+        } else {
+          // Handle errors if needed
+          console.error("Registration error:", data.error);
+        }
+      })
+      .catch(error => {
+        console.error("Registration failed:", error);
+      });
+    });
+  </script>
+  
+</body>
+</html>

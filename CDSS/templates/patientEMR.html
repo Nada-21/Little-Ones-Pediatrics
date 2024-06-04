@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Site Metas -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Patient EMR | Little Ones Pediatrics</title>
+    <link rel="shortcut icon" type="image/png" href="static/assets/images/newborn.jpg">
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="static/assets/css/bootstrap.css"/>
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+
+    <!-- font awesome style -->
+    <link href="static/assets/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <!-- nice select -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css"
+          integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous"/>
+
+    <!-- datepicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+
+    <!-- Custom styles for this template -->
+    <link href="static/assets/css/style.css" rel="stylesheet"/>
+
+    <!-- responsive style -->
+    <link href="static/assets/css/responsive.css" rel="stylesheet"/>
+
+    <title>EMR</title>
+    <link rel="stylesheet" href="static/assets/css/style-EMR.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    
+</head>
+<body>
+<h1>Little Ones Pediatrics</h1>
+<div class="container">
+
+    <div class="weather-data" >
+        <div class="current-weather" style="background:#2d2f30;">
+            <div class="days-forecast">
+                <ul class="weather-cards">
+                    <li class="card" style="width: 200px; ">
+                        <h6 style="color: #00c6a9;">Personal Data</h6>
+                        <h6>Name: <span id="patientName"></span></h6>
+                        <h6>Weight: <span id="patientWeight"></span></h6>
+                        <h6>Height: <span id="patientHeight"></span></h6>
+                        <h6>Age: <span id="patientAge"></span></h6>
+                    </li>
+                    <li class="card" style="width: 200px; ">
+                        <h6 style="color: #00c6a9;">Drugs</h6>
+                        <h6 id="patientDrugs"></h6>
+                    </li>
+                    <li class="card" style="width: 200px; ">
+                        <h6 style="color: #00c6a9;">Illnesses</h6>
+                        <h6 id="patientIllnesses"></h6>
+                    </li>
+                    <li class="card" style="width: 200px; ">
+                        <h6 style="color: #00c6a9;">Medical Tests</h6>
+                        <h6 id="patientMedicalTests"></h6>
+                    </li>
+                    <li class="card" style="width: 200px; ">
+                        <h6 style="color: #00c6a9;">Operations</h6>
+                        <h6 id="patientOperations"></h6>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="current-weather" style="margin: 8px; background:#fff; border: 1px solid #00c6a9">
+            <form>
+                <div class="form-row ">
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputDiagnosis" placeholder="Diagnosis">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputExtraNotes" placeholder="ExtraNotes">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputHeight" placeholder="Height">
+                    </div>
+                    <!-- Add other input fields here -->
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputHeartRate" placeholder="Heart Rate">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputRecommendedAction" placeholder="Recommended Action">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputBloodPressure" placeholder="Blood Pressure">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputDiabeticTest" placeholder="Diabetic Test">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputWeight" placeholder="Weight">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputRespirationRate" placeholder="Respiration Rate">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <input type="text" class="form-control" id="inputSPO2" placeholder="SPO2">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="button-container" >
+      <div class="button-row">
+        <button onclick="" class="button1">Prescription</button>
+        <button onclick="" class="button1">Test</button>
+        <button onclick="" class="button1">Services</button>
+        <button class="button1" style="width: 100px; " onclick="enableEdit">Edit</button>
+        <button class="button1" style="width: 100px; " disabled onclick="Edit()"> Done</button>
+        <button class="button1" style="width: 200px;" onclick="viewImage()">View Patient Images</button>
+    </div>
+
+    </div>
+
+</div>
+
+<div class="form1" id="myForm" style="display: none;">
+    <!-- Form for Services -->
+    <form>
+        <h1 style="color: #00c6a9; background-color: #fff;">Services</h1>
+        <select name="" type="text" id="serviceSelect" placeholder="Services" class="form-control wide">
+            <option value="Vaccine">Vaccine</option>
+            <option value="Nebulizer">Nebulizer</option>
+            <option value="Iv adminis">Iv adminis</option>
+        </select>
+        <button type="button" style="color: #00c6a9; background-color: #fff; border:#fff;" onclick="">Save</button>
+        <button type="button" style="background-color: #fff; border:#fff;" onclick="">Close</button>
+    </form>
+</div>
+
+<div class="form1" id="test" style="display: none;">
+    <!-- Form for Tests -->
+    <form>
+        <h1 style="color: #00c6a9; background-color: #fff;">Tests</h1>
+        <select name="" type="text" id="testSelect" placeholder="Tests" class="form-control wide">
+            <option value="ASOT">ASOT</option>
+            <option value="VitaminD">VitaminD</option>
+            <option value="CBC">CBC</option>
+        </select>
+        <button type="button" style="color: #00c6a9; background-color: #fff; border:#fff;" onclick="">Save</button>
+        <button type="button" style="background-color: #fff; border:#fff;" onclick="">Close</button>
+    </form>
+</div>
+
+<div class="form1" id="myForm3" style="display: none;">
+    <!-- Form for Prescription -->
+    <form >
+        <h1 style="color: #00c6a9; background-color: #fff;">Add Prescription</h1>
+
+        <input type="text" class="form-control" id="inputDrug" style="margin: 6px;" placeholder="Drug">
+        <input type="text" class="form-control" id="inputDose" style="margin: 6px;" placeholder="Dose">
+        <input type="text" class="form-control" id="inputTime" style="margin: 6px;" placeholder="Time">
+        <input type="text" class="form-control" id="inputNote" style="margin: 6px;" placeholder="Note">
+
+
+        <button type="button" style="color: #00c6a9; background-color: #fff; border:#fff;" onclick="">Save</button>
+        <button type="button" style="background-color: #fff; border:#fff;" onclick="">Close</button>
+    </form>
+    <!-- Form content -->
+</div>
+
+
+<script>
+    let globalpatientID;
+
+//     document.addEventListener('DOMContentLoaded', (event) => {
+//     fetch(`/getpatientid`)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Failed to retrieve patient ID');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             globalpatientID = data.PatientID;
+//             if (globalpatientID) {
+//                 return fetch(`/search?patientID=${globalpatientID}`);
+//             } else {
+//                 throw new Error('No patient ID found');
+//             }
+//         })
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Failed to fetch patient data');
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             const patient = data;
+//             document.getElementById('patientName').innerText = `${patient.FirstName} ${patient.LastName}`;
+//             document.getElementById('patientAge').innerText = patient.Age || 'N/A';
+//             document.querySelector('.weather-data').style.display = 'block';
+//             document.querySelector('.button-container').style.display = 'block';
+//         })
+//         .catch(error => {
+//             console.error('Error:', error.message);
+//             alert(error.message);
+//         });
+// });
+
+function viewImage() {
+    fetch(`/getpatientid`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to retrieve patient ID');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const patientID = data.PatientID;
+            // Now that you have the patient ID, fetch the patient image
+            fetch(`/getfile?patientID=${patientID}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch patient image');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    window.location.href = "http://127.0.0.1:5000/Model";
+
+                })
+                .catch(error => {
+                    console.error('Error:', error.message);
+                    alert('Failed to fetch patient image');
+                });
+        })
+        .catch(error => {
+            console.error('Error:', error.message);
+            alert('Failed to retrieve patient ID');
+        });
+}
+
+    function disableEdit() {
+        document.querySelectorAll('.current-weather input').forEach(input => {
+            input.setAttribute('disabled', true);
+        });
+        document.querySelector('.button-row button:nth-child(4)').disabled = false;
+        document.querySelector('.button-row button:nth-child(5)').disabled = true;
+    }
+
+    function enableEdit() {
+        document.querySelectorAll('.current-weather input').forEach(input => {
+            input.removeAttribute('disabled');
+        });
+        document.querySelector('.button-row button:nth-child(4)').disabled = true;
+        document.querySelector('.button-row button:nth-child(5)').disabled = false;
+    }
+
+    document.querySelector('.button-row button:nth-child(4)').addEventListener('click', enableEdit);
+    document.querySelector('.button-row button:nth-child(5)').addEventListener('click', disableEdit);
+
+    disableEdit();
+
+
+</script>
+</body>
+</html>

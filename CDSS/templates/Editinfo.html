@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Edit information | Little Ones Pediatrics</title>
+
+  <link rel="shortcut icon" type="image/png" href="static/assets/images/newborn.jpg">
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/assets/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!--owl slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link href="static/assets/css/font-awesome.min.css" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- datepicker -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+  <!-- Custom styles for this template -->
+  <link href="static/assets/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/assets/css/responsive.css" rel="stylesheet" />
+  <link rel="stylesheet" href="static/assets/css/style-EMR.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+     
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="http://127.0.0.1:5000">
+              <img src="static/assets/images/newborn-removebg.png" alt="">
+            </a>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <div class="d-flex mr-auto flex-column flex-lg-row align-items-center">
+                <ul class="navbar-nav  ">
+                  <li class="nav-item ">
+                    <a class="nav-link" href="http://127.0.0.1:5000">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="http://127.0.0.1:5000/View_EHR"> View EHR</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:5000/Editinfo">Edit information</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:5000/boock">Book Appointment</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:5000/contact">Contact Us</a>
+                  </li>
+                  
+                </ul>
+              </div>
+        
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+    
+    <div class="container">
+      
+      <div class="weather-data">
+       
+       
+        <div class="current-weather" style="margin: 8px; background:#fff; border: 1px solid #00c6a9">
+          <form action="/uploadfile" method="post" enctype="multipart/form-data"></form>
+            <!-- <div class="details"> -->
+                <form >
+                    <div class="form-row ">
+                    <div class="form-group col-lg-4">
+                     
+                        <label style="color:rgb(42, 41, 41);">First Name</label>
+                        <input type="text" class="form-control" id="inputfirstName" placeholder="FirstName">
+                        </div>
+                        <div class="form-group col-lg-4">
+                          <label style="color:rgb(42, 41, 41);">Last Name</label>
+                          <input type="text" class="form-control" id="inputlastName" placeholder="LastName">
+                          </div>
+                        <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">Age</label>
+                        <input type="text" class="form-control" id="inputAge" placeholder="Age">
+                        </div>
+                      <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">Parent Name</label>
+                       <input type="text" class="form-control" id="inputParentName" placeholder="Parent Name">
+                      </div>
+                      <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">Parent Number</label>
+                       <input type="text" class="form-control" id="inputParentNumber" placeholder="Parent Number">
+                      </div>
+                      <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">Ssn</label>
+                       <input type="text" class="form-control" id="inputSsn" placeholder="Ssn">
+                      </div>
+                      <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">Parent Email</label>
+                       <input type="text" class="form-control" id="inputParentEmail" placeholder="Parent Email">
+                      </div>
+                      <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">UserName</label>
+                       <input type="text" class="form-control" id="inputusername" placeholder="UserName">
+                      </div>
+                      <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">Password</label>
+                       <input type="text" class="form-control" id="inputpassword" placeholder="Password">
+                      </div>
+                      <div class="form-group col-lg-4">
+                        <label style="color:rgb(42, 41, 41);">Upload File</label>
+                        <input type="file" class="form-control" id="myFile" name="file">
+                    </div> 
+                  </form> 
+          </div>
+          
+      </div>
+
+      <div>
+        <button  class="button1" style="width: 200px; " onclick="">Edit Information</button>
+        <button type="button" class="button1" style="width: 200px;" onclick="uploadFile()">Upload File</button>
+      </div>
+     
+    </div>
+      
+    </div>
+
+  <!-- jQery -->
+  <script src="static/assets/js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="static/assets/js/bootstrap.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- owl slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!-- datepicker -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+
+  <script>
+    async function uploadFile() {
+      const fileInput = document.getElementById('myFile');
+      const file = fileInput.files[0];
+
+      if (!file) {
+        alert("Please select a file to upload.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('/uploadfile', {
+          method: 'POST',
+          body: formData,
+          credentials: 'include'  // This is important to include session data in the request
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          alert(result.message);
+        } else {
+          const error = await response.json();
+          alert(error.error);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred while uploading the file.');
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

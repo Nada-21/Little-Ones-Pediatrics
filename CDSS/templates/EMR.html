@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>EMR | Little Ones Pediatrics</title>
+    <link rel="shortcut icon" type="image/png" href="static/assets/images/newborn.jpg">
+    <link rel="stylesheet" type="text/css" href="static/assets/css/bootstrap.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link href="static/assets/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css">
+    <link href="static/assets/css/style.css" rel="stylesheet"/>
+    <link href="static/assets/css/responsive.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="static/assets/css/style-EMR.css">
+
+</head>
+<body>
+<h1>Little Ones Pediatrics</h1>
+<div class="container">
+    <div class="weather-input">
+        <h3>Enter a PatientID</h3>
+        <input class="city-input" type="text" id="patientid" placeholder="Enter Patient ID">
+        <button class="search-btn" onclick="searchPatient()">Search</button>
+        <button class="search-btn" style="margin-top: 10px;" onclick="createNewEMR()">Create New EMR</button>
+        <button class="search-btn" style="margin-top: 10px;" onclick="redirectToSchedule()">View Today's Schedule</button>
+    </div>
+    <div class="patient-details-form" style="display: none;">
+        <h3>Enter Patient Details</h3>
+        <form>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputPatientName">Name</label>
+                    <input type="text" class="form-control" id="inputPatientName" placeholder="Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPatientWeight">Weight</label>
+                    <input type="text" class="form-control" id="inputPatientWeight" placeholder="Weight">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPatientHeight">Height</label>
+                    <input type="text" class="form-control" id="inputPatientHeight" placeholder="Height">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPatientID">ID</label>
+                    <input type="text" class="form-control" id="inputPatientID" placeholder="ID">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPatientDrugs">Drugs</label>
+                    <input type="text" class="form-control" id="inputPatientDrugs" placeholder="Drugs">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPatientIllnesses">Illnesses</label>
+                    <input type="text" class="form-control" id="inputPatientIllnesses" placeholder="Illnesses">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPatientMedicalTests">Medical Tests</label>
+                    <input type="text" class="form-control" id="inputPatientMedicalTests" placeholder="Medical Tests">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPatientOperations">Operations</label>
+                    <input type="text" class="form-control" id="inputPatientOperations" placeholder="Operations">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="savePatientDetails()">Save</button>
+        </form>
+    </div>
+</div>
+<script>
+   let globalpatientImage;
+   
+   function searchPatient() {
+        const patientID = document.getElementById('patientid').value;
+        if (patientID) {
+            fetch(`/savepatientid?patientID=${patientID}`)
+                .then(response => response.json())
+                .then(() => {
+                    window.location.href = "http://127.0.0.1:5000/patientEMR";
+                })
+                .catch(error => {
+                    console.error('Error saving patient ID:', error);
+                    alert('Error saving patient ID. Please try again.');
+                });
+        } else {
+            alert('Please enter a valid Patient ID.');
+        }
+    }
+
+
+    function redirectToSchedule() {
+        window.location.href = "http://127.0.0.1:5000/DoctorSchedule";
+    }
+
+    function createNewEMR() {
+        document.querySelector('.patient-details-form').style.display = 'block';
+    }
+</script>
+</body>
+</html>

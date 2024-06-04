@@ -1,0 +1,84 @@
+/* General styles */
+.custom-container {
+    border: 2px solid #00c6a9;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.custom-title {
+    background: white;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.img-container {
+    text-align: center;
+}
+
+.img-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.fixed-height {
+    height: 60px;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.toggle-container {
+    display: flex;
+    flex-direction: column;
+}
+.toggle-container button {
+    background-color: #00c6a9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Add cursor pointer to indicate interactivity */
+}
+
+.toggle-container button:hover,
+.toggle-container button:focus {
+    background-color: #00af8f !important;  /* Darker shade of green */
+}
+
+/* Remove the default focus outline */
+.toggle-container button:focus {
+    outline: none;
+}
+
+
+
+
+
+.results-section {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-section.hidden {
+    display: none;
+}
+
+.results-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.results-title-container h3 {
+    margin: 0;
+}
