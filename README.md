@@ -8,12 +8,15 @@
 ### Doctor Portal
 ![Doctor Portal](https://github.com/Nada-21/Little-Ones-Pediatrics/assets/83358118/c315eb05-789c-4d2f-8715-771b74be4306)
 
+[DEMO](https://drive.google.com/file/d/1wafHUNpE3yMTJZPw66UbvFxkCf6xBEj5/view?usp=drive_link)
 ## HL7 Messages Folder
 Implementation of TCP/IP Protocol for sending hl7 messages that connect between client & server 
 ### Our Scenario 
 ![scenario](https://github.com/Nada-21/Little-Ones-Pediatrics/assets/83358118/12ea829d-8f2b-4558-9ffa-a1d7f861816a)
+[DEMO](https://drive.google.com/file/d/1g3Pn2JCBaWXh6a9GZh8lV8QuvcZYc3ps/view?usp=drive_link)
 
 ## CDSS
+Classification of common thoracic diseases in pediatric patients
 [DEMO](https://drive.google.com/file/d/10bVJp0o5ee5oVoIGpgM1Oj0WE7n0VMpM/view?usp=drive_link)
 
 <table>
